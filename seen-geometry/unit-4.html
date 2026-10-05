@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Unit 4 · Scale · Seen Geometry</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="sample"><strong>Draft / sample.</strong> Do not apply.</div>
+<div class="top"><nav class="course-nav" aria-label="Course">
+  <a href="index.html">Course home</a>
+  <a href="unit-1.html">1 Point</a>
+  <a href="unit-2.html">2 Slide</a>
+  <a href="unit-3.html">3 Turn</a>
+  <a href="unit-4.html" aria-current="page">4 Size</a>
+  <a href="unit-5.html">5 Field</a>
+  <a href="unit-6.html">6 Morph</a>
+  <a href="unit-7.html">7 Order</a>
+  <a href="unit-8.html">8 Look</a>
+</nav></div>
+<article class="wrap" id="main">
+
+  <p class="eyebrow">Unit 4 · A factor, and a center · ~35 minutes</p>
+  <h1>Scale — grow / shrink</h1>
+  <p class="lede">Factor 2 means twice as far from the center you named. The center is part of the rule. Forget it, and the square also slides.</p>
+  <div class="meta">
+    <span class="chip">3 objectives</span>
+    <span class="chip">Two centers</span>
+    <span class="chip">1 homework</span>
+  </div>
+
+  <h2>What you'll do</h2>
+  <p>In this sitting:</p>
+  <ol class="obj-list">
+    <li>Double a square from the origin, and double it again from its own center.</li>
+    <li>Say what a scale factor does to a distance, and what it does to the center.</li>
+    <li>Tell a grow-from-zero (the shape also moves out) from a grow-in-place.</li>
+  </ol>
+
+  <h2>Lesson</h2>
+  <h3>Distances from a center</h3>
+  <p>A scale multiplies distances from a center you name. Factor 2: twice as far from that center. Factor 1/2: half as far. Factor 1: no change. This page stays with positive factors. A negative factor would also flip the shape through the center. We will not build a unit on flips. If you need a flip later, say “flip” and show the before and after. Do not hide it inside the word “scale.”</p>
+  <p>The square starts with corners (1, 1), (2, 1), (2, 2), and (1, 2). Side length 1. The open dot is the center, at (1.5, 1.5). The red dot is the corner that starts at (1, 1).</p>
+  <div class="formula">About zero: <strong>(x, y) → (kx, ky)</strong>. About a center C: <strong>C + k (P − C)</strong>. For k = 2 from zero, (1, 1) lands at <strong>(2, 2)</strong>. The side was 1; it becomes 2.</div>
+
+  <h3>Doubling from zero also slides the center</h3>
+  <p>Press <strong>Double from zero</strong>. Every coordinate doubles. The side becomes 2. The open dot moves from (1.5, 1.5) to (3, 3). The square grew, and it also moved away from zero, because its center was not zero. People call that “just a scale.” Part of what you see is a slide of the center. Say so.</p>
+  <p>Press <strong>Double from the center</strong> (it starts over from the original square, so you can compare). The side is again 2. The open dot stays at (1.5, 1.5). The red corner moves from (1, 1) to (0.5, 0.5): it got farther from the center, not farther from zero in the same way. Same factor. Different center. Different picture.</p>
+  <p><strong>Half from zero</strong> sends (1, 1) to (0.5, 0.5). The side becomes 1/2. The center moves in, to (0.75, 0.75). Shrink toward zero is not the same as shrink in place. Each button replaces the picture. They do not stack. Stacking factors is a composition; Unit 7 stacks a slide and a turn, which is enough for this 101.</p>
+
+  <div class="plane">
+    <svg id="plane4" viewBox="0 0 320 280" role="img" aria-labelledby="plane4cap">
+      <title id="plane4cap">Grid from 0 to 6. A square grows or shrinks. Open dot: center. Red dot: a corner.</title>
+      <g data-grid></g>
+      <polygon data-shape fill="#e3eef5" stroke="#2a4d66" stroke-width="2"></polygon>
+      <circle data-hub r="5" fill="#fff" stroke="#2a4d66" stroke-width="2"></circle>
+      <circle data-mark r="4.5" fill="#8b2e2e"></circle>
+    </svg>
+    <p class="readout" id="read4" aria-live="polite"></p>
+    <div class="btn-row">
+      <button type="button" class="btn" id="z2">Double from zero</button>
+      <button type="button" class="btn" id="c2">Double from the center</button>
+      <button type="button" class="btn" id="zh">Half from zero</button>
+      <button type="button" class="btn" id="reset">Reset</button>
+    </div>
+  </div>
+  <p class="attribution">Teaching grid, drawn for this sample. Factors are exact on purpose. Not a measurement from a class.</p>
+
+  <div class="practice" id="p-which">
+    <p class="eyebrow">Practice</p>
+    <h2>Same factor, which center?</h2>
+    <p>The side was 1. It is now 2. You doubled. Which sentence matches which button?</p>
+    <div id="sc-box"></div>
+    <div class="feedback" id="sc-fb" role="status"></div>
+  </div>
+
+  <div class="practice" id="p-num">
+    <p class="eyebrow">Practice</p>
+    <h2>Half from zero</h2>
+    <p>A corner at (4, 2), factor 1/2, center at zero. Where does it land? Type x, y.</p>
+    <div class="numrow">
+      <label class="field" for="land" style="margin:0">New point</label>
+      <input type="text" id="land" inputmode="text" placeholder="2, 1" />
+      <button type="button" class="btn primary" id="land-check">Check</button>
+    </div>
+    <div class="feedback" id="land-fb" role="status"></div>
+  </div>
+
+  <div class="homework">
+    <h2>Homework</h2>
+    <p>Write it. If someone is running a section, turn it in there. 180–260 words.</p>
+    <blockquote class="prompt">Use the square on this page, or a drawing on paper you can measure with a ruler you already have. Double something and say the center. Report: the factor, the side before and after, and whether the center moved. One sentence on what would change your mind (a side that is not twice, or a center that moved when you said it stayed). Do not invent a printed diagram from a class. Do not describe how to build a zoom lens.</blockquote>
+    <label class="field" for="hw4">Draft here (not stored; copy it out)</label>
+    <textarea id="hw4" rows="8" placeholder="Factor, center, side before and after, what would change your mind…"></textarea>
+    <p class="wc" id="hw4wc"></p>
+    <div class="actions">
+      <button type="button" class="btn" id="copyHw">Copy homework prompt</button>
+    </div>
+  </div>
+
+  <nav class="pager" aria-label="Unit">
+    <a href="unit-3.html">← Prev: Rotation</a>
+    <a href="unit-5.html">Next: One shape, many matrices →</a>
+  </nav>
+
+  <footer>Virgil Renfroe · Greensboro, NC · <a href="mailto:virgilrenfroe@gmail.com">virgilrenfroe@gmail.com</a> · 336-306-4185</footer>
+</article>
+<script>
+function copyHw(btnId) {
+  const btn = document.getElementById(btnId);
+  if (!btn) return;
+  btn.addEventListener("click", async () => {
+    const t = document.querySelector("blockquote.prompt").textContent;
+    try { await navigator.clipboard.writeText(t); btn.textContent = "Copied"; }
+    catch (_) { btn.textContent = "Select the prompt to copy"; }
+  });
+}
+function wordCount(taId, outId) {
+  const ta = document.getElementById(taId);
+  const out = document.getElementById(outId);
+  if (!ta || !out) return;
+  const upd = () => {
+    const n = ta.value.trim() ? ta.value.trim().split(/\s+/).length : 0;
+    out.textContent = n + " word" + (n === 1 ? "" : "s");
+  };
+  ta.addEventListener("input", upd);
+  upd();
+}
+function choices(boxId, fbId, opts) {
+  const box = document.getElementById(boxId);
+  const fb = document.getElementById(fbId);
+  opts.forEach((o) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "choice";
+    b.textContent = o.t;
+    b.addEventListener("click", () => {
+      [...box.querySelectorAll(".choice")].forEach(c => c.disabled = true);
+      b.classList.add(o.ok ? "correct" : "wrong");
+      opts.forEach((oo, j) => { if (oo.ok) box.children[j].classList.add("correct"); });
+      fb.className = "feedback show " + (o.ok ? "ok" : "bad");
+      fb.textContent = o.fb;
+    });
+    box.appendChild(b);
+  });
+}
+function mountPlane(svg, bounds) {
+  const NS = "http://www.w3.org/2000/svg";
+  const W = 320, H = 280, pad = 36;
+  const { xMin, xMax, yMin, yMax } = bounds;
+  const X = (x) => pad + (x - xMin) / (xMax - xMin) * (W - 2 * pad);
+  const Y = (y) => H - pad - (y - yMin) / (yMax - yMin) * (H - 2 * pad);
+  const g = svg.querySelector("[data-grid]");
+  g.replaceChildren();
+  const el = (name, attrs) => {
+    const n = document.createElementNS(NS, name);
+    for (const k in attrs) n.setAttribute(k, attrs[k]);
+    return n;
+  };
+  for (let x = xMin; x <= xMax; x++) {
+    g.appendChild(el("line", { x1: X(x), y1: Y(yMin), x2: X(x), y2: Y(yMax), stroke: "#e4dfd6", "stroke-width": "1" }));
+  }
+  for (let y = yMin; y <= yMax; y++) {
+    g.appendChild(el("line", { x1: X(xMin), y1: Y(y), x2: X(xMax), y2: Y(y), stroke: "#e4dfd6", "stroke-width": "1" }));
+  }
+  g.appendChild(el("line", { x1: X(xMin), y1: Y(0), x2: X(xMax), y2: Y(0), stroke: "#1c1916", "stroke-width": "1.6" }));
+  g.appendChild(el("line", { x1: X(0), y1: Y(yMin), x2: X(0), y2: Y(yMax), stroke: "#1c1916", "stroke-width": "1.6" }));
+  for (let x = xMin; x <= xMax; x++) {
+    const t = el("text", { x: X(x), y: Math.min(H - 8, Y(0) + 14), "text-anchor": "middle", fill: "#5c564c", "font-size": "11", "font-family": "Segoe UI, sans-serif" });
+    t.textContent = String(x);
+    g.appendChild(t);
+  }
+  for (let y = yMin; y <= yMax; y++) {
+    if (y === 0) continue;
+    const t = el("text", { x: X(0) - 6, y: Y(y) + 4, "text-anchor": "end", fill: "#5c564c", "font-size": "11", "font-family": "Segoe UI, sans-serif" });
+    t.textContent = String(y);
+    g.appendChild(t);
+  }
+  const hx = el("text", { x: X(xMax) - 2, y: Y(0) - 8, "text-anchor": "end", fill: "#2a4d66", "font-size": "13", "font-family": "Segoe UI, sans-serif" });
+  hx.textContent = "x";
+  g.appendChild(hx);
+  const hy = el("text", { x: X(0) + 8, y: Y(yMax) + 14, fill: "#2a4d66", "font-size": "13", "font-family": "Segoe UI, sans-serif" });
+  hy.textContent = "y";
+  g.appendChild(hy);
+  return { X, Y };
+}
+(function () {
+  const svg = document.getElementById("plane4");
+  const map = mountPlane(svg, { xMin: 0, xMax: 6, yMin: 0, yMax: 6 });
+  const shape = svg.querySelector("[data-shape]");
+  const mark = svg.querySelector("[data-mark]");
+  const hubEl = svg.querySelector("[data-hub]");
+  const read = document.getElementById("read4");
+  const base = [[1, 1], [2, 1], [2, 2], [1, 2]];
+  const c0 = [1.5, 1.5];
+  const modes = {
+    reset: {
+      k: 1,
+      about: "the start",
+      map: (p) => p.slice(),
+      note: "Start. Factor 1. Side 1. Center stays at (1.5, 1.5)."
+    },
+    z2: {
+      map: (p) => [2 * p[0], 2 * p[1]],
+      note: "Factor 2 from zero. Side 2. Center moved to (3, 3). The grow and a slide of the center are both in the picture."
+    },
+    c2: {
+      map: (p) => [c0[0] + 2 * (p[0] - c0[0]), c0[1] + 2 * (p[1] - c0[1])],
+      note: "Factor 2 from the square’s own center. Side 2. Center stayed at (1.5, 1.5)."
+    },
+    zh: {
+      map: (p) => [0.5 * p[0], 0.5 * p[1]],
+      note: "Factor 1/2 from zero. Side 1/2. Center moved in to (0.75, 0.75)."
+    }
+  };
+  function fmt(n) {
+    const r = Math.round(n * 100) / 100;
+    return Number.isInteger(r) ? String(r) : String(r);
+  }
+  function draw(mode) {
+    const fn = modes[mode].map;
+    const pts = base.map(fn);
+    const hub = fn(c0);
+    shape.setAttribute("points", pts.map((p) => map.X(p[0]) + "," + map.Y(p[1])).join(" "));
+    mark.setAttribute("cx", map.X(pts[0][0]));
+    mark.setAttribute("cy", map.Y(pts[0][1]));
+    hubEl.setAttribute("cx", map.X(hub[0]));
+    hubEl.setAttribute("cy", map.Y(hub[1]));
+    read.textContent = modes[mode].note + " Marked corner (" + fmt(pts[0][0]) + ", " + fmt(pts[0][1]) + ").";
+  }
+  document.getElementById("z2").addEventListener("click", () => draw("z2"));
+  document.getElementById("c2").addEventListener("click", () => draw("c2"));
+  document.getElementById("zh").addEventListener("click", () => draw("zh"));
+  document.getElementById("reset").addEventListener("click", () => draw("reset"));
+  draw("reset");
+
+  choices("sc-box", "sc-fb", [
+    { t: "Open dot at (3, 3): doubled from zero. Open dot still at (1.5, 1.5): doubled from the center. Both sides are 2.", ok: true, fb: "Yes. The factor matches. The center you named is why one square also moved out." },
+    { t: "If the side doubled, the center must have moved. That is what doubling means.", ok: false, fb: "Only if the center was not the point you scaled from. Double from the square’s own center and the open dot stays." },
+    { t: "Double from zero leaves the square where it started and only changes the matrix symbol.", ok: false, fb: "Look at the open dot. From zero it goes to (3, 3). The picture moved. A symbol that says otherwise is wrong." }
+  ]);
+  document.getElementById("land-check").addEventListener("click", () => {
+    const raw = document.getElementById("land").value.replace(/[()]/g, "");
+    const parts = raw.split(/[,\s]+/).filter(Boolean);
+    const fb = document.getElementById("land-fb");
+    const x = Number(parts[0]);
+    const y = Number(parts[1]);
+    if (parts.length < 2 || Number.isNaN(x) || Number.isNaN(y)) {
+      fb.className = "feedback show bad";
+      fb.textContent = "Type two numbers, like 2, 1.";
+      return;
+    }
+    if (x === 2 && y === 1) {
+      fb.className = "feedback show ok";
+      fb.textContent = "Yes. Half of 4 is 2, half of 2 is 1. About zero, both coordinates take the factor.";
+    } else {
+      fb.className = "feedback show bad";
+      fb.textContent = "Not yet. Multiply both coordinates by 1/2: (4 × 1/2, 2 × 1/2) = (2, 1).";
+    }
+  });
+  copyHw("copyHw");
+  wordCount("hw4", "hw4wc");
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Unit 6 · Morph targets · Seen Geometry</title>
+<link rel="stylesheet" href="styles.css" />
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js" } }
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="sample"><strong>Draft / sample.</strong> Do not apply.</div>
+<div class="top"><nav class="course-nav" aria-label="Course">
+  <a href="index.html">Course home</a>
+  <a href="unit-1.html">1 Point</a>
+  <a href="unit-2.html">2 Slide</a>
+  <a href="unit-3.html">3 Turn</a>
+  <a href="unit-4.html">4 Size</a>
+  <a href="unit-5.html">5 Field</a>
+  <a href="unit-6.html" aria-current="page">6 Morph</a>
+  <a href="unit-7.html">7 Order</a>
+  <a href="unit-8.html">8 Look</a>
+</nav></div>
+<article class="wrap" id="main">
+
+  <p class="eyebrow">Unit 6 · The shape list changes · ~40 minutes</p>
+  <h1>Continuous shape change</h1>
+  <p class="lede">A morph target is a second shape the mesh already stores. A weight from 0 to 1 pulls every point toward it. That is not a slide.</p>
+  <div class="meta">
+    <span class="chip">3 objectives</span>
+    <span class="chip">Sliders + lab</span>
+    <span class="chip">1 homework</span>
+  </div>
+
+  <h2>What you'll do</h2>
+  <p>In this sitting:</p>
+  <ol class="obj-list">
+    <li>Move a blend weight and say what 0, 1, and halfway mean.</li>
+    <li>Tell a morph (the points of the shape change) from a matrix move (the whole copy slides, turns, or resizes).</li>
+    <li>Watch the live morph lab, or drive the flat sliders on this page if you want the motion still.</li>
+  </ol>
+
+  <h2>Lesson</h2>
+  <h3>A weight, not an address</h3>
+  <p>Unit 5 kept the corner list and changed the matrix. A morph does the other job. The mesh stores a base shape and one or more targets. A blend weight between 0 and 1 mixes them. At 0 you have the base. At 1 you have that target. At 0.5 each point is halfway along its own path from base to target. The shape’s address on the grid did not have to change. The points inside the list did.</p>
+  <p>Two weights can be on at once. Each target pulls from the base. If both weights are high, the picture can look stretched. That is the mix, not a broken slider. You are not required to use both.</p>
+  <div class="formula">Weight <strong>0</strong> = base shape. Weight <strong>1</strong> = that target. Weight <strong>0.5</strong> = halfway, point by point. A matrix slide would add the same shift to every point. A morph does not.</div>
+
+  <h3>Sliders on this page</h3>
+  <p>The circle below is a flat cousin of the lab, so you can set a weight with a finger and the picture holds still. Spike pulls the outline into bumps. Squash widens it and flattens it. This is not a vertex-for-vertex copy of the lab’s sphere. Do not try to match them pixel by pixel. The rule is the lesson: 0, 1, and halfway.</p>
+
+  <div class="plane">
+    <svg id="morph" viewBox="0 0 320 240" role="img" aria-labelledby="morphcap">
+      <title id="morphcap">A circle that blends toward spikes or a squash as you move the weights.</title>
+      <polygon id="morph-shape" fill="#e3eef5" stroke="#2a4d66" stroke-width="2"></polygon>
+    </svg>
+    <div class="slider-row">
+      <label for="w-spike">Spike weight <span id="w-spike-n">0</span></label>
+      <input id="w-spike" type="range" min="0" max="1" step="0.01" value="0" />
+    </div>
+    <div class="slider-row">
+      <label for="w-squash">Squash weight <span id="w-squash-n">0</span></label>
+      <input id="w-squash" type="range" min="0" max="1" step="0.01" value="0" />
+    </div>
+    <p class="readout" id="morph-read" aria-live="polite"></p>
+    <div class="btn-row">
+      <button type="button" class="btn" id="m-spike">Spike only</button>
+      <button type="button" class="btn" id="m-half">Halfway spike</button>
+      <button type="button" class="btn" id="m-squash">Squash only</button>
+      <button type="button" class="btn" id="m-reset">Reset</button>
+    </div>
+  </div>
+  <p class="attribution">Flat teaching shape for this page. Not student work.</p>
+
+  <h3>The same weights, on a solid</h3>
+  <p>The outline is flat, so a phone can set a weight and hold still. The solid below is one sphere. It stores two other shapes, spike and squash, and it reads the same two sliders. Weight 0 leaves the sphere. Weight 1 is that stored shape. Halfway pulls each point part of the way. You do not drag the solid. The sliders and the buttons are the control.</p>
+  <p>A slow turn of the whole solid is only so you can tell it is not a flat picture. If motion is reduced, it holds still and the sliders still change the shape. If the solid does not appear, the outline still carries the lesson.</p>
+  <p class="honesty">Teaching view on this page. Not a class that ran. Virgil Renfroe did not teach geometry at A&amp;T. The sphere is not student work.</p>
+
+  <div class="plane">
+    <canvas id="solid-canvas" class="stage-canvas" width="640" height="480" aria-label="A sphere that blends toward spikes or a squash as the weights change."></canvas>
+    <p class="readout" id="solid-read" aria-live="polite">Loading the solid…</p>
+  </div>
+
+  <div class="practice" id="p-weight">
+    <p class="eyebrow">Practice</p>
+    <h2>What is a weight of 0.5?</h2>
+    <p>Spike at 0.5. Squash at 0. Use the slider if you want the picture.</p>
+    <div id="w-box"></div>
+    <div class="feedback" id="w-fb" role="status"></div>
+  </div>
+
+  <div class="practice" id="p-kind">
+    <p class="eyebrow">Practice</p>
+    <h2>Morph or matrix?</h2>
+    <p>Which sentence is the morph?</p>
+    <div id="k-box"></div>
+    <div class="feedback" id="k-fb" role="status"></div>
+  </div>
+
+  <div class="homework">
+    <h2>Homework</h2>
+    <p>Write it. If someone is running a section, turn it in there. 160–240 words.</p>
+    <blockquote class="prompt">Set one weight on this page. Write the weight you mean (0, 1, halfway, or another value you actually set). Say what the shape was doing — spikes, squash, or a mix — in a sentence a classmate could check by moving the same slider. Then one sentence: why this is not a translation. What would change your mind: the outline at weight 1 matching the plain circle, or the whole shape only sliding with the outline unchanged. If the solid did not start, say so and use the outline. Do not invent a table of weights you did not set.</blockquote>
+    <label class="field" for="hw6">Draft here (not stored; copy it out)</label>
+    <textarea id="hw6" rows="8" placeholder="The weight, what you saw, why it is not a slide, what would change your mind…"></textarea>
+    <p class="wc" id="hw6wc"></p>
+    <div class="actions">
+      <button type="button" class="btn" id="copyHw">Copy homework prompt</button>
+    </div>
+  </div>
+
+  <nav class="pager" aria-label="Unit">
+    <a href="unit-5.html">← Prev: One shape, many matrices</a>
+    <a href="unit-7.html">Next: Compose transforms →</a>
+  </nav>
+
+  <footer>Virgil Renfroe · Greensboro, NC · <a href="mailto:virgilrenfroe@gmail.com">virgilrenfroe@gmail.com</a> · 336-306-4185</footer>
+</article>
+<script>
+function copyHw(btnId) {
+  const btn = document.getElementById(btnId);
+  if (!btn) return;
+  btn.addEventListener("click", async () => {
+    const t = document.querySelector("blockquote.prompt").textContent;
+    try { await navigator.clipboard.writeText(t); btn.textContent = "Copied"; }
+    catch (_) { btn.textContent = "Select the prompt to copy"; }
+  });
+}
+function wordCount(taId, outId) {
+  const ta = document.getElementById(taId);
+  const out = document.getElementById(outId);
+  if (!ta || !out) return;
+  const upd = () => {
+    const n = ta.value.trim() ? ta.value.trim().split(/\s+/).length : 0;
+    out.textContent = n + " word" + (n === 1 ? "" : "s");
+  };
+  ta.addEventListener("input", upd);
+  upd();
+}
+function choices(boxId, fbId, opts) {
+  const box = document.getElementById(boxId);
+  const fb = document.getElementById(fbId);
+  opts.forEach((o) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "choice";
+    b.addEventListener("click", () => {
+      [...box.querySelectorAll(".choice")].forEach(c => c.disabled = true);
+      b.classList.add(o.ok ? "correct" : "wrong");
+      opts.forEach((oo, j) => { if (oo.ok) box.children[j].classList.add("correct"); });
+      fb.className = "feedback show " + (o.ok ? "ok" : "bad");
+      fb.textContent = o.fb;
+    });
+    box.appendChild(b);
+  });
+}
+(function () {
+  const poly = document.getElementById("morph-shape");
+  const spike = document.getElementById("w-spike");
+  const squash = document.getElementById("w-squash");
+  const read = document.getElementById("morph-read");
+  const N = 64;
+  function draw() {
+    const w0 = Number(spike.value);
+    const w1 = Number(squash.value);
+    document.getElementById("w-spike-n").textContent = w0.toFixed(2);
+    document.getElementById("w-squash-n").textContent = w1.toFixed(2);
+    const pts = [];
+    for (let i = 0; i < N; i++) {
+      const a = (i / N) * Math.PI * 2;
+      const x = Math.cos(a);
+      const y = Math.sin(a);
+      const spikeR = 1 + 0.42 * Math.abs(Math.sin(4 * a));
+      const sx = Math.cos(a) * spikeR;
+      const sy = Math.sin(a) * spikeR;
+      const qx = x * 1.45;
+      const qy = y * 0.55;
+      const fx = x + (sx - x) * w0 + (qx - x) * w1;
+      const fy = y + (sy - y) * w0 + (qy - y) * w1;
+      pts.push((160 + fx * 70) + "," + (120 - fy * 70));
+    }
+    poly.setAttribute("points", pts.join(" "));
+    read.textContent = "Spike " + w0.toFixed(2) + ", squash " + w1.toFixed(2) + ". At 0.00 the outline is the circle. At 1.00 a target is fully on. This did not slide the shape to a new address.";
+  }
+  spike.addEventListener("input", draw);
+  squash.addEventListener("input", draw);
+  function setWeights(w0, w1) {
+    spike.value = String(w0);
+    squash.value = String(w1);
+    draw();
+  }
+  document.getElementById("m-spike").addEventListener("click", () => setWeights(1, 0));
+  document.getElementById("m-half").addEventListener("click", () => setWeights(0.5, 0));
+  document.getElementById("m-squash").addEventListener("click", () => setWeights(0, 1));
+  document.getElementById("m-reset").addEventListener("click", () => setWeights(0, 0));
+  draw();
+  setTimeout(() => {
+    const solid = document.getElementById("solid-read");
+    if (solid && solid.textContent.indexOf("Loading") === 0) {
+      solid.textContent = "The solid did not start. The outline above still shows the weights. Nothing was uploaded.";
+    }
+  }, 4000);
+
+  choices("w-box", "w-fb", [
+    { t: "Halfway from the circle toward the spiky target. Each point moved part of the way. The shape was not slid to a new address.", ok: true, fb: "Yes. 0.5 is a mix, point by point. Press Halfway spike if you want the outline in front of you." },
+    { t: "The circle moved 0.5 units to the right.", ok: false, fb: "That would be a translation: the same shift on every point. A morph weight is not a distance along the axis." },
+    { t: "The matrix turned 50 degrees.", ok: false, fb: "A turn would spin the whole outline and leave it a circle. Spike at 0.5 changes the outline. The weight is not an angle." }
+  ]);
+  choices("k-box", "k-fb", [
+    { t: "The corner list moves toward a second shape stored on the mesh. Weight 1 is that shape. Weight 0 is the base.", ok: true, fb: "Yes. That is a morph target. The list changes. Unit 5’s matrix left the list alone." },
+    { t: "The whole copy slides 3 units and turns 90°, and the outline stays the same kind of shape.", ok: false, fb: "That is a matrix: slide and turn. The mesh list is shared. A morph is the case where the list itself is what changes." },
+    { t: "You recolor the copies in the field. Color is the blend weight.", ok: false, fb: "Color can vary on the instanced boxes. A blend weight mixes positions of points, not paint." }
+  ]);
+copyHw("copyHw");
+wordCount("hw6", "hw6wc");
+})();
+</script>
+<script type="module">
+import * as THREE from "three";
+
+const canvas = document.getElementById("solid-canvas");
+const read = document.getElementById("solid-read");
+const spike = document.getElementById("w-spike");
+const squash = document.getElementById("w-squash");
+
+try {
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false, preserveDrawingBuffer: true });
+  renderer.setClearColor(0xf7f4ee, 1);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 20);
+  camera.position.set(0, 0.35, 3.4);
+  camera.lookAt(0, 0, 0);
+
+  const base = new THREE.SphereGeometry(1, 40, 28);
+  const pos = base.attributes.position;
+  const spikeArr = new Float32Array(pos.count * 3);
+  const squashArr = new Float32Array(pos.count * 3);
+  const v = new THREE.Vector3();
+  for (let i = 0; i < pos.count; i++) {
+    v.fromBufferAttribute(pos, i);
+    const n = v.clone().normalize();
+    const bump = 0.85 * Math.abs(Math.sin(n.x * 3) * Math.sin(n.z * 3));
+    const sp = n.multiplyScalar(1 + bump);
+    spikeArr[i * 3] = sp.x;
+    spikeArr[i * 3 + 1] = sp.y;
+    spikeArr[i * 3 + 2] = sp.z;
+    squashArr[i * 3] = v.x * 1.4;
+    squashArr[i * 3 + 1] = v.y * 0.55;
+    squashArr[i * 3 + 2] = v.z * 1.4;
+  }
+  base.morphAttributes.position = [
+    new THREE.Float32BufferAttribute(spikeArr, 3),
+    new THREE.Float32BufferAttribute(squashArr, 3)
+  ];
+  const mesh = new THREE.Mesh(base, new THREE.MeshStandardMaterial({
+    color: 0x3d6a8a,
+    roughness: 0.45,
+    metalness: 0.05,
+    flatShading: true
+  }));
+  mesh.morphTargetInfluences = [0, 0];
+  scene.add(mesh);
+  scene.add(new THREE.AmbientLight(0xffffff, 0.7));
+  const dir = new THREE.DirectionalLight(0xfff8ee, 1.45);
+  dir.position.set(2.5, 3.2, 2);
+  scene.add(dir);
+
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function fit() {
+    const w = canvas.clientWidth || 640;
+    const h = canvas.clientHeight || 480;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / Math.max(h, 1);
+    camera.updateProjectionMatrix();
+  }
+  function pull() {
+    mesh.morphTargetInfluences[0] = Number(spike.value);
+    mesh.morphTargetInfluences[1] = Number(squash.value);
+    const w0 = Number(spike.value).toFixed(2);
+    const w1 = Number(squash.value).toFixed(2);
+    read.textContent = "Solid uses the same weights. Spike " + w0 + ", squash " + w1 + ". The sphere’s address did not change. The points of the mesh did.";
+  }
+  function paint(spin) {
+    fit();
+    pull();
+    if (spin) mesh.rotation.y += 0.008;
+    renderer.render(scene, camera);
+  }
+  spike.addEventListener("input", () => paint(false));
+  squash.addEventListener("input", () => paint(false));
+  ["m-spike", "m-half", "m-squash", "m-reset"].forEach((id) => {
+    document.getElementById(id).addEventListener("click", () => paint(false));
+  });
+  new ResizeObserver(() => paint(false)).observe(canvas);
+  paint(false);
+  if (!reduce) {
+    (function loop() {
+      requestAnimationFrame(loop);
+      paint(true);
+    })();
+  }
+} catch (err) {
+  read.textContent = "The solid did not start. The outline above still shows the weights. Nothing was uploaded.";
+}
+</script>
+</body>
+</html>
