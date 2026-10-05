@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Unit 3 · Rotation · Seen Geometry</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="sample"><strong>Draft / sample.</strong> Do not apply.</div>
+<div class="top"><nav class="course-nav" aria-label="Course">
+  <a href="index.html">Course home</a>
+  <a href="unit-1.html">1 Point</a>
+  <a href="unit-2.html">2 Slide</a>
+  <a href="unit-3.html" aria-current="page">3 Turn</a>
+  <a href="unit-4.html">4 Size</a>
+  <a href="unit-5.html">5 Field</a>
+  <a href="unit-6.html">6 Morph</a>
+  <a href="unit-7.html">7 Order</a>
+  <a href="unit-8.html">8 Look</a>
+</nav></div>
+<article class="wrap" id="main">
+
+  <p class="eyebrow">Unit 3 · Name the center · ~40 minutes</p>
+  <h1>Rotation — turn around an axis</h1>
+  <p class="lede">A turn needs a center. Around zero, the shape swings. In place, the center stays and the corners trade jobs.</p>
+  <div class="meta">
+    <span class="chip">3 objectives</span>
+    <span class="chip">Two centers</span>
+    <span class="chip">1 homework</span>
+  </div>
+
+  <h2>What you'll do</h2>
+  <p>In this sitting:</p>
+  <ol class="obj-list">
+    <li>Quarter-turn a shape around the origin, and again around its own center.</li>
+    <li>Use the quarter-turn rule (x, y) → (−y, x), and say that this page’s buttons are counterclockwise.</li>
+    <li>Name the center in a sentence. “It rotated” with no center is not finished.</li>
+  </ol>
+
+  <h2>Lesson</h2>
+  <h3>The center stays</h3>
+  <p>A rotation turns a shape around a point, or around an axis through that point. In the flat page, you see the point. Every other point moves on a circle around it. The center itself does not move. If you cannot point at the center, you do not yet have a rotation. You have a gesture.</p>
+  <p>This page uses quarter turns only, so the arithmetic stays on halves and wholes. A quarter turn counterclockwise about the origin sends (x, y) to (−y, x). A clock’s hand is the other way. Clockwise about the origin would send (x, y) to (y, −x). If you turn a book clockwise on a table, say clockwise. Do not force the book to match the button. Name which one you did.</p>
+  <div class="formula">Quarter turn counterclockwise about zero: <strong>(x, y) → (−y, x)</strong>. Example: (2, 0) lands at <strong>(0, 2)</strong>. The origin stays at (0, 0).</div>
+
+  <h3>Around zero is not “in place”</h3>
+  <p>The shape below is a little house, not a square, so a turn does not look like the same picture with a new label. The red dot is one corner. The open dot is the house’s center, starting at (1.5, 1).</p>
+  <p>Press <strong>Around zero</strong> once. The open dot leaves (1.5, 1). The whole house swings onto another part of the grid. That is a turn about the origin — the axis through zero, sticking out of the page. Press Reset. Press <strong>In place</strong> once. The open dot is still at (1.5, 1). The red corner moves around it. Same amount of turn, different center, different picture.</p>
+  <p>Reset between the two buttons if you want a fair compare. If you stack them, you are composing transforms. That is Unit 7. The readout still tells you where the dots are.</p>
+
+  <div class="plane">
+    <svg id="plane3" viewBox="0 0 320 280" role="img" aria-labelledby="plane3cap">
+      <title id="plane3cap">Grid from −3 to 3. A house turns. Red dot: a corner. Open dot: the center.</title>
+      <g data-grid></g>
+      <polygon data-shape fill="#e3eef5" stroke="#2a4d66" stroke-width="2"></polygon>
+      <circle data-hub r="5" fill="#fff" stroke="#2a4d66" stroke-width="2"></circle>
+      <circle data-mark r="4.5" fill="#8b2e2e"></circle>
+    </svg>
+    <p class="readout" id="read3" aria-live="polite"></p>
+    <div class="btn-row">
+      <button type="button" class="btn" id="around">Around zero</button>
+      <button type="button" class="btn" id="inplace">In place</button>
+      <button type="button" class="btn" id="reset">Reset</button>
+    </div>
+  </div>
+  <p class="attribution">Teaching grid, drawn for this sample. Quarter turns are counterclockwise. Not a measurement from a class.</p>
+
+  <h3>What would change your mind</h3>
+  <p>You claim a quarter turn about zero. The marked corner started at (1.0, 0.6). The rule says it lands at (−0.6, 1.0). If the red dot is somewhere else, the claim is wrong or the center was not zero. You claim a turn in place. The open dot must still read (1.5, 1) after one press from the start. If the open dot moved, the center was not the house.</p>
+  <p>A square can hide a quarter turn in place, because it looks the same after 90 degrees except for which corner is which. That is why this page uses a house. On a real book, the title is the mark. If the title still faces you, you did not turn the book, no matter what the sentence says.</p>
+
+  <div class="practice" id="p-which">
+    <p class="eyebrow">Practice</p>
+    <h2>Which turn is which?</h2>
+    <p>From the start pose. One press each, with a reset between them.</p>
+    <div id="t-box"></div>
+    <div class="feedback" id="t-fb" role="status"></div>
+  </div>
+
+  <div class="practice" id="p-num">
+    <p class="eyebrow">Practice</p>
+    <h2>Apply the rule once</h2>
+    <p>A point at (3, 1), quarter turn counterclockwise about zero. Where does it land? Type x, y.</p>
+    <div class="numrow">
+      <label class="field" for="land" style="margin:0">New point</label>
+      <input type="text" id="land" inputmode="text" placeholder="-1, 3" />
+      <button type="button" class="btn primary" id="land-check">Check</button>
+    </div>
+    <div class="feedback" id="land-fb" role="status"></div>
+  </div>
+
+  <div class="homework">
+    <h2>Homework</h2>
+    <p>Write it. If someone is running a section, turn it in there. 180–280 words. Stay seated.</p>
+    <blockquote class="prompt">Turn one object already on a table (a book or a coaster) by about a quarter turn. Name the center: a corner, the middle of the cover, or a spot on the table under it. Say clockwise or counterclockwise. Say where one marked point (a title, a logo, a corner) started and where it ended, in words a classmate could check. Then write what the page’s two buttons taught you, in one sentence: around zero versus in place. What would change your mind — a photo from above, or the open dot moving when you claimed it stayed. Do not stand on a chair. If you only used this page, say which button you pressed and where the two dots ended. Do not invent a class table.</blockquote>
+    <label class="field" for="hw3">Draft here (not stored; copy it out)</label>
+    <textarea id="hw3" rows="8" placeholder="Center, direction, before and after, what would change your mind…"></textarea>
+    <p class="wc" id="hw3wc"></p>
+    <div class="actions">
+      <button type="button" class="btn" id="copyHw">Copy homework prompt</button>
+    </div>
+  </div>
+
+  <nav class="pager" aria-label="Unit">
+    <a href="unit-2.html">← Prev: Translation</a>
+    <a href="unit-4.html">Next: Scale →</a>
+  </nav>
+
+  <footer>Virgil Renfroe · Greensboro, NC · <a href="mailto:virgilrenfroe@gmail.com">virgilrenfroe@gmail.com</a> · 336-306-4185</footer>
+</article>
+<script>
+function copyHw(btnId) {
+  const btn = document.getElementById(btnId);
+  if (!btn) return;
+  btn.addEventListener("click", async () => {
+    const t = document.querySelector("blockquote.prompt").textContent;
+    try { await navigator.clipboard.writeText(t); btn.textContent = "Copied"; }
+    catch (_) { btn.textContent = "Select the prompt to copy"; }
+  });
+}
+function wordCount(taId, outId) {
+  const ta = document.getElementById(taId);
+  const out = document.getElementById(outId);
+  if (!ta || !out) return;
+  const upd = () => {
+    const n = ta.value.trim() ? ta.value.trim().split(/\s+/).length : 0;
+    out.textContent = n + " word" + (n === 1 ? "" : "s");
+  };
+  ta.addEventListener("input", upd);
+  upd();
+}
+function choices(boxId, fbId, opts) {
+  const box = document.getElementById(boxId);
+  const fb = document.getElementById(fbId);
+  opts.forEach((o) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "choice";
+    b.textContent = o.t;
+    b.addEventListener("click", () => {
+      [...box.querySelectorAll(".choice")].forEach(c => c.disabled = true);
+      b.classList.add(o.ok ? "correct" : "wrong");
+      opts.forEach((oo, j) => { if (oo.ok) box.children[j].classList.add("correct"); });
+      fb.className = "feedback show " + (o.ok ? "ok" : "bad");
+      fb.textContent = o.fb;
+    });
+    box.appendChild(b);
+  });
+}
+function mountPlane(svg, bounds) {
+  const NS = "http://www.w3.org/2000/svg";
+  const W = 320, H = 280, pad = 36;
+  const { xMin, xMax, yMin, yMax } = bounds;
+  const X = (x) => pad + (x - xMin) / (xMax - xMin) * (W - 2 * pad);
+  const Y = (y) => H - pad - (y - yMin) / (yMax - yMin) * (H - 2 * pad);
+  const g = svg.querySelector("[data-grid]");
+  g.replaceChildren();
+  const el = (name, attrs) => {
+    const n = document.createElementNS(NS, name);
+    for (const k in attrs) n.setAttribute(k, attrs[k]);
+    return n;
+  };
+  for (let x = xMin; x <= xMax; x++) {
+    g.appendChild(el("line", { x1: X(x), y1: Y(yMin), x2: X(x), y2: Y(yMax), stroke: "#e4dfd6", "stroke-width": "1" }));
+  }
+  for (let y = yMin; y <= yMax; y++) {
+    g.appendChild(el("line", { x1: X(xMin), y1: Y(y), x2: X(xMax), y2: Y(y), stroke: "#e4dfd6", "stroke-width": "1" }));
+  }
+  g.appendChild(el("line", { x1: X(xMin), y1: Y(0), x2: X(xMax), y2: Y(0), stroke: "#1c1916", "stroke-width": "1.6" }));
+  g.appendChild(el("line", { x1: X(0), y1: Y(yMin), x2: X(0), y2: Y(yMax), stroke: "#1c1916", "stroke-width": "1.6" }));
+  for (let x = xMin; x <= xMax; x++) {
+    const t = el("text", { x: X(x), y: Math.min(H - 8, Y(0) + 14), "text-anchor": "middle", fill: "#5c564c", "font-size": "11", "font-family": "Segoe UI, sans-serif" });
+    t.textContent = String(x);
+    g.appendChild(t);
+  }
+  for (let y = yMin; y <= yMax; y++) {
+    if (y === 0) continue;
+    const t = el("text", { x: X(0) - 6, y: Y(y) + 4, "text-anchor": "end", fill: "#5c564c", "font-size": "11", "font-family": "Segoe UI, sans-serif" });
+    t.textContent = String(y);
+    g.appendChild(t);
+  }
+  const hx = el("text", { x: X(xMax) - 2, y: Y(0) - 8, "text-anchor": "end", fill: "#2a4d66", "font-size": "13", "font-family": "Segoe UI, sans-serif" });
+  hx.textContent = "x";
+  g.appendChild(hx);
+  const hy = el("text", { x: X(0) + 8, y: Y(yMax) + 14, fill: "#2a4d66", "font-size": "13", "font-family": "Segoe UI, sans-serif" });
+  hy.textContent = "y";
+  g.appendChild(hy);
+  return { X, Y };
+}
+(function () {
+  const svg = document.getElementById("plane3");
+  const map = mountPlane(svg, { xMin: -3, xMax: 3, yMin: -3, yMax: 3 });
+  const shape = svg.querySelector("[data-shape]");
+  const mark = svg.querySelector("[data-mark]");
+  const hubEl = svg.querySelector("[data-hub]");
+  const read = document.getElementById("read3");
+  const startCorners = [[1, 0.6], [2, 0.6], [2, 1.2], [1.5, 1.7], [1, 1.2]];
+  const startHub = [1.5, 1];
+  let corners = startCorners.map((p) => p.slice());
+  let hub = startHub.slice();
+  let last = "Start pose. No turn yet.";
+  const fmt = (n) => {
+    const r = Math.round(n * 10) / 10;
+    if (Object.is(r, -0)) return "0";
+    return Number.isInteger(r) ? String(r) : r.toFixed(1);
+  };
+  const pair = (p) => "(" + fmt(p[0]) + ", " + fmt(p[1]) + ")";
+  function rot(p, c) {
+    const x = p[0] - c[0];
+    const y = p[1] - c[1];
+    return [c[0] - y, c[1] + x];
+  }
+  function draw() {
+    shape.setAttribute("points", corners.map((p) => map.X(p[0]) + "," + map.Y(p[1])).join(" "));
+    mark.setAttribute("cx", map.X(corners[0][0]));
+    mark.setAttribute("cy", map.Y(corners[0][1]));
+    hubEl.setAttribute("cx", map.X(hub[0]));
+    hubEl.setAttribute("cy", map.Y(hub[1]));
+    read.textContent = last + " Marked corner " + pair(corners[0]) + ". Center " + pair(hub) + ".";
+  }
+  document.getElementById("around").addEventListener("click", () => {
+    corners = corners.map((p) => rot(p, [0, 0]));
+    hub = rot(hub, [0, 0]);
+    last = "Quarter turn counterclockwise around zero.";
+    draw();
+  });
+  document.getElementById("inplace").addEventListener("click", () => {
+    const c = hub.slice();
+    corners = corners.map((p) => rot(p, c));
+    last = "Quarter turn counterclockwise around the shape’s own center. That center stayed at " + pair(c) + ".";
+    draw();
+  });
+  document.getElementById("reset").addEventListener("click", () => {
+    corners = startCorners.map((p) => p.slice());
+    hub = startHub.slice();
+    last = "Reset to the start pose.";
+    draw();
+  });
+  draw();
+
+  choices("t-box", "t-fb", [
+    { t: "Around zero swings the open dot off (1.5, 1). In place keeps the open dot there and moves the red corner around it.", ok: true, fb: "Yes. Same quarter turn, two centers. The center you name is part of the claim." },
+    { t: "They are the same move, because both say quarter turn.", ok: false, fb: "The amount can match and the picture still differ. Watch the open dot. If it leaves (1.5, 1), the center was zero." },
+    { t: "In place is the one that throws the house into another quadrant. Around zero keeps it put.", ok: false, fb: "Swap that. From the start, Around zero is the swing. In place keeps the center." }
+  ]);
+  document.getElementById("land-check").addEventListener("click", () => {
+    const raw = document.getElementById("land").value.replace(/[()]/g, "");
+    const parts = raw.split(/[,\s]+/).filter(Boolean);
+    const fb = document.getElementById("land-fb");
+    const x = Number(parts[0]);
+    const y = Number(parts[1]);
+    if (parts.length < 2 || Number.isNaN(x) || Number.isNaN(y)) {
+      fb.className = "feedback show bad";
+      fb.textContent = "Type two numbers, like -1, 3.";
+      return;
+    }
+    if (x === -1 && y === 3) {
+      fb.className = "feedback show ok";
+      fb.textContent = "Yes. (3, 1) → (−1, 3). That is (−y, x). The origin did not move.";
+    } else {
+      fb.className = "feedback show bad";
+      fb.textContent = "Not yet. (x, y) → (−y, x). Here x is 3 and y is 1, so the new point is (−1, 3).";
+    }
+  });
+  copyHw("copyHw");
+  wordCount("hw3", "hw3wc");
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Unit 7 · Compose transforms · Seen Geometry</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="sample"><strong>Draft / sample.</strong> Do not apply.</div>
+<div class="top"><nav class="course-nav" aria-label="Course">
+  <a href="index.html">Course home</a>
+  <a href="unit-1.html">1 Point</a>
+  <a href="unit-2.html">2 Slide</a>
+  <a href="unit-3.html">3 Turn</a>
+  <a href="unit-4.html">4 Size</a>
+  <a href="unit-5.html">5 Field</a>
+  <a href="unit-6.html">6 Morph</a>
+  <a href="unit-7.html" aria-current="page">7 Order</a>
+  <a href="unit-8.html">8 Look</a>
+</nav></div>
+<article class="wrap" id="main">
+
+  <p class="eyebrow">Unit 7 · Do both, in both orders · ~40 minutes</p>
+  <h1>Compose transforms</h1>
+  <p class="lede">A slide and a turn, stacked. Slide-then-turn lands the marked corner at (0, 4). Turn-then-slide lands it at (2, 2).</p>
+  <div class="meta">
+    <span class="chip">3 objectives</span>
+    <span class="chip">Both orders</span>
+    <span class="chip">1 homework</span>
+  </div>
+
+  <h2>What you'll do</h2>
+  <p>In this sitting:</p>
+  <ol class="obj-list">
+    <li>Run a slide and then a quarter turn, and watch the marked corner.</li>
+    <li>Run the quarter turn first and then the same slide, and watch the other ending.</li>
+    <li>Say, in one sentence, that the order changed the place. You do not multiply the tables by hand.</li>
+  </ol>
+
+  <h2>Lesson</h2>
+  <h3>Two rules, one after the other</h3>
+  <p>A composition is one transform after another. The second rule sees the points where the first rule left them. Swap the order and the second rule has a different job, even when the two rules have the same names. “I did a slide and a turn” is not finished until you say which came first.</p>
+  <p>The square here starts with its marked corner (red or rust, one on each copy) at (2, 0). The other corners are (3, 0), (3, 1), and (2, 1). The slide is 2 units in +x. The turn is a quarter turn counterclockwise about zero: (x, y) → (−y, x). The pale square slides first. The tan square turns first. They start on the same corners, so at step 0 you mostly see one square. Step them.</p>
+  <div class="formula">Slide then turn: (2, 0) → (4, 0) → <strong>(0, 4)</strong>. Turn then slide: (2, 0) → (0, 2) → <strong>(2, 2)</strong>. Same two rules. Different endings.</div>
+
+  <h3>Watch the corner, not the slogan</h3>
+  <p>Press <strong>Next</strong> under the blue label once. The marked corner goes to (4, 0). That is only the slide. Press again. It goes to (0, 4). The turn took the already-slid square and swung it about zero.</p>
+  <p>Press <strong>Next</strong> under the tan label once. The marked corner goes to (0, 2). The square was still sitting at x = 2 when it turned, so it swung up, not out to x = 4. Press again. The slide adds 2 to x and the corner ends at (2, 2). It never visits (0, 4).</p>
+  <p>Matrices can store this stack. The order you apply the tables is the order of the pictures. This page will not ask you to multiply them. If a table says the two orders match, and the two dots do not, the table is wrong. The dots are the check.</p>
+  <p>A morph is not in this stack. Unit 6 changed the corner list. Here the square stays a square. Only its place and its facing change, and only because of the order.</p>
+
+  <div class="plane">
+    <svg id="plane7" viewBox="0 0 320 280" role="img" aria-labelledby="plane7cap">
+      <title id="plane7cap">Two squares on a grid. One slides then turns. The other turns then slides.</title>
+      <g data-grid></g>
+      <polygon data-ghost fill="none" stroke="#c4beb4" stroke-width="1.5" stroke-dasharray="4 3"></polygon>
+      <polygon data-b fill="#f8efe4" stroke="#8a4b12" stroke-width="2"></polygon>
+      <polygon data-a fill="#e3eef5" stroke="#2a4d66" stroke-width="2"></polygon>
+      <circle data-markb r="4.5" fill="#8a4b12"></circle>
+      <circle data-marka r="4.5" fill="#8b2e2e"></circle>
+    </svg>
+    <p class="readout" id="read7" aria-live="polite"></p>
+    <div class="btn-row">
+      <button type="button" class="btn" id="next-a">Blue: next</button>
+      <button type="button" class="btn" id="next-b">Tan: next</button>
+      <button type="button" class="btn" id="reset">Reset both</button>
+    </div>
+  </div>
+  <p class="attribution">Teaching grid. Blue is slide, then turn. Tan is turn, then slide. Invented for this page. Not a class result.</p>
+
+  <div class="practice" id="p-order">
+    <p class="eyebrow">Practice</p>
+    <h2>Where did the corner land?</h2>
+    <p>Finish both sequences. Then pick the sentence that matches the dots.</p>
+    <div id="o-box"></div>
+    <div class="feedback" id="o-fb" role="status"></div>
+  </div>
+
+  <div class="practice" id="p-why">
+    <p class="eyebrow">Practice</p>
+    <h2>Why the order changed the place</h2>
+    <div id="why-box"></div>
+    <div class="feedback" id="why-fb" role="status"></div>
+  </div>
+
+  <div class="homework">
+    <h2>Homework</h2>
+    <p>Write it. If someone is running a section, turn it in there. 180–280 words.</p>
+    <blockquote class="prompt">Run both sequences on this page. For each, write the marked corner at the start, after the first move, and at the end. Use the numbers the readout gives: the blue path should pass through (4, 0) and end at (0, 4); the tan path should pass through (0, 2) and end at (2, 2). If you get different numbers, say what you pressed. Then one sentence a classmate could use: what would change your mind about “order doesn’t matter.” Do not multiply matrices by hand. Do not invent a second square you did not step through.</blockquote>
+    <label class="field" for="hw7">Draft here (not stored; copy it out)</label>
+    <textarea id="hw7" rows="8" placeholder="Blue path, tan path, what would change your mind…"></textarea>
+    <p class="wc" id="hw7wc"></p>
+    <div class="actions">
+      <button type="button" class="btn" id="copyHw">Copy homework prompt</button>
+    </div>
+  </div>
+
+  <nav class="pager" aria-label="Unit">
+    <a href="unit-6.html">← Prev: Morph targets</a>
+    <a href="unit-8.html">Next: A short look →</a>
+  </nav>
+
+  <footer>Virgil Renfroe · Greensboro, NC · <a href="mailto:virgilrenfroe@gmail.com">virgilrenfroe@gmail.com</a> · 336-306-4185</footer>
+</article>
+<script>
+function copyHw(btnId) {
+  const btn = document.getElementById(btnId);
+  if (!btn) return;
+  btn.addEventListener("click", async () => {
+    const t = document.querySelector("blockquote.prompt").textContent;
+    try { await navigator.clipboard.writeText(t); btn.textContent = "Copied"; }
+    catch (_) { btn.textContent = "Select the prompt to copy"; }
+  });
+}
+function wordCount(taId, outId) {
+  const ta = document.getElementById(taId);
+  const out = document.getElementById(outId);
+  if (!ta || !out) return;
+  const upd = () => {
+    const n = ta.value.trim() ? ta.value.trim().split(/\s+/).length : 0;
+    out.textContent = n + " word" + (n === 1 ? "" : "s");
+  };
+  ta.addEventListener("input", upd);
+  upd();
+}
+function choices(boxId, fbId, opts) {
+  const box = document.getElementById(boxId);
+  const fb = document.getElementById(fbId);
+  opts.forEach((o) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "choice";
+    b.textContent = o.t;
+    b.addEventListener("click", () => {
+      [...box.querySelectorAll(".choice")].forEach(c => c.disabled = true);
+      b.classList.add(o.ok ? "correct" : "wrong");
+      opts.forEach((oo, j) => { if (oo.ok) box.children[j].classList.add("correct"); });
+      fb.className = "feedback show " + (o.ok ? "ok" : "bad");
+      fb.textContent = o.fb;
+    });
+    box.appendChild(b);
+  });
+}
+function mountPlane(svg, bounds) {
+  const NS = "http://www.w3.org/2000/svg";
+  const W = 320, H = 280, pad = 32;
+  const { xMin, xMax, yMin, yMax } = bounds;
+  const X = (x) => pad + (x - xMin) / (xMax - xMin) * (W - 2 * pad);
+  const Y = (y) => H - pad - (y - yMin) / (yMax - yMin) * (H - 2 * pad);
+  const g = svg.querySelector("[data-grid]");
+  g.replaceChildren();
+  const el = (name, attrs) => {
+    const n = document.createElementNS(NS, name);
+    for (const k in attrs) n.setAttribute(k, attrs[k]);
+    return n;
+  };
+  for (let x = xMin; x <= xMax; x++) {
+    g.appendChild(el("line", { x1: X(x), y1: Y(yMin), x2: X(x), y2: Y(yMax), stroke: "#e4dfd6", "stroke-width": "1" }));
+  }
+  for (let y = yMin; y <= yMax; y++) {
+    g.appendChild(el("line", { x1: X(xMin), y1: Y(y), x2: X(xMax), y2: Y(y), stroke: "#e4dfd6", "stroke-width": "1" }));
+  }
+  g.appendChild(el("line", { x1: X(xMin), y1: Y(0), x2: X(xMax), y2: Y(0), stroke: "#1c1916", "stroke-width": "1.6" }));
+  g.appendChild(el("line", { x1: X(0), y1: Y(yMin), x2: X(0), y2: Y(yMax), stroke: "#1c1916", "stroke-width": "1.6" }));
+  for (let x = xMin; x <= xMax; x++) {
+    if (x === 0) continue;
+    const t = el("text", { x: X(x), y: Math.min(H - 6, Y(0) + 13), "text-anchor": "middle", fill: "#5c564c", "font-size": "10", "font-family": "Segoe UI, sans-serif" });
+    t.textContent = String(x);
+    g.appendChild(t);
+  }
+  for (let y = yMin; y <= yMax; y++) {
+    if (y === 0) continue;
+    const t = el("text", { x: X(0) - 5, y: Y(y) + 3, "text-anchor": "end", fill: "#5c564c", "font-size": "10", "font-family": "Segoe UI, sans-serif" });
+    t.textContent = String(y);
+    g.appendChild(t);
+  }
+  return { X, Y };
+}
+(function () {
+  const svg = document.getElementById("plane7");
+  const map = mountPlane(svg, { xMin: -2, xMax: 6, yMin: -1, yMax: 6 });
+  const base = [[2, 0], [3, 0], [3, 1], [2, 1]];
+  const slide = (pts) => pts.map((p) => [p[0] + 2, p[1]]);
+  const turn = (pts) => pts.map((p) => [-p[1], p[0]]);
+  const pathA = [base, slide(base), turn(slide(base))];
+  const pathB = [base, turn(base), slide(turn(base))];
+  const namesA = ["start", "after the slide (4, 0)", "after the turn — ended at (0, 4)"];
+  const namesB = ["start", "after the turn (0, 2)", "after the slide — ended at (2, 2)"];
+  let stepA = 0;
+  let stepB = 0;
+  const polyA = svg.querySelector("[data-a]");
+  const polyB = svg.querySelector("[data-b]");
+  const ghost = svg.querySelector("[data-ghost]");
+  const markA = svg.querySelector("[data-marka]");
+  const markB = svg.querySelector("[data-markb]");
+  const read = document.getElementById("read7");
+  const btnA = document.getElementById("next-a");
+  const btnB = document.getElementById("next-b");
+  function ptsAttr(pts) {
+    return pts.map((p) => map.X(p[0]) + "," + map.Y(p[1])).join(" ");
+  }
+  function pair(p) {
+    return "(" + p[0] + ", " + p[1] + ")";
+  }
+  function draw() {
+    const a = pathA[stepA];
+    const b = pathB[stepB];
+    polyA.setAttribute("points", ptsAttr(a));
+    polyB.setAttribute("points", ptsAttr(b));
+    ghost.setAttribute("points", ptsAttr(base));
+    markA.setAttribute("cx", map.X(a[0][0]));
+    markA.setAttribute("cy", map.Y(a[0][1]));
+    markB.setAttribute("cx", map.X(b[0][0]));
+    markB.setAttribute("cy", map.Y(b[0][1]));
+    read.textContent = "Blue (slide, then turn): " + namesA[stepA] + ", marked corner " + pair(a[0]) + ". Tan (turn, then slide): " + namesB[stepB] + ", marked corner " + pair(b[0]) + ".";
+    btnA.disabled = stepA >= 2;
+    btnB.disabled = stepB >= 2;
+  }
+  btnA.addEventListener("click", () => { if (stepA < 2) stepA += 1; draw(); });
+  btnB.addEventListener("click", () => { if (stepB < 2) stepB += 1; draw(); });
+  document.getElementById("reset").addEventListener("click", () => { stepA = 0; stepB = 0; draw(); });
+  draw();
+
+  choices("o-box", "o-fb", [
+    { t: "Blue ends at (0, 4). Tan ends at (2, 2). The order changed the place.", ok: true, fb: "Yes. Same slide, same quarter turn about zero, different order, different corner. Point at the two dots." },
+    { t: "Both end at (0, 4). A slide and a turn commute.", ok: false, fb: "Finish the tan sequence. Its marked corner ends at (2, 2), not (0, 4)." },
+    { t: "Both end where they started, because a turn undoes a slide.", ok: false, fb: "A turn does not undo a slide. Reset and step again. The start corner is (2, 0). Neither ending is (2, 0)." }
+  ]);
+  choices("why-box", "why-fb", [
+    { t: "The turn about zero swings whatever point it is given. After the slide, that point is (4, 0). Before the slide, it is (2, 0). Different inputs, different landings. Then the leftover slide, if it comes second, adds (2, 0) to a different place.", ok: true, fb: "Yes. The second rule sees the points the first rule left. That is the whole of “order matters” on this page." },
+    { t: "Order matters only when the matrix symbols look complicated. These two moves are simple, so the order cannot matter.", ok: false, fb: "The moves are simple and the endings still differ. Simple is why you can check them by eye." },
+    { t: "The tan square morphed, so of course it ended elsewhere.", ok: false, fb: "Both stay squares. The corner list did not blend. Unit 6 was the morph. This is a slide and a turn." }
+  ]);
+  copyHw("copyHw");
+  wordCount("hw7", "hw7wc");
+})();
+</script>
+</body>
+</html>

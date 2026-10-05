@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Unit 2 · Translation · Seen Geometry</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="sample"><strong>Draft / sample.</strong> Do not apply.</div>
+<div class="top"><nav class="course-nav" aria-label="Course">
+  <a href="index.html">Course home</a>
+  <a href="unit-1.html">1 Point</a>
+  <a href="unit-2.html" aria-current="page">2 Slide</a>
+  <a href="unit-3.html">3 Turn</a>
+  <a href="unit-4.html">4 Size</a>
+  <a href="unit-5.html">5 Field</a>
+  <a href="unit-6.html">6 Morph</a>
+  <a href="unit-7.html">7 Order</a>
+  <a href="unit-8.html">8 Look</a>
+</nav></div>
+<article class="wrap" id="main">
+
+  <p class="eyebrow">Unit 2 · The same shift · ~40 minutes</p>
+  <h1>Translation — slide in space</h1>
+  <p class="lede">Every corner moves by the same amount. The square does not turn. It does not grow.</p>
+  <div class="meta">
+    <span class="chip">3 objectives</span>
+    <span class="chip">Slide + check</span>
+    <span class="chip">1 homework</span>
+  </div>
+
+  <h2>What you'll do</h2>
+  <p>In this sitting:</p>
+  <ol class="obj-list">
+    <li>Slide a square on a grid and read the marked corner before and after.</li>
+    <li>State the rule: (x, y) goes to (x + a, y + b), with the same a and b for every point.</li>
+    <li>Refuse a sentence that calls a slide a turn or a grow.</li>
+  </ol>
+
+  <h2>Lesson</h2>
+  <h3>Same shift, every point</h3>
+  <p>A translation is a slide. Pick a direction and a distance. Every point on the shape moves that far, that way. A book pushed 4 centimeters along the table edge: every corner moved 4 centimeters that way. The book did not spin. The cover did not get larger. If one corner moved farther than another, something else happened — a turn, a bend, a bad reading.</p>
+  <p>On the grid below, one unit is one square. The pale square starts with its marked corner (the red dot) at (1, 1). The other corners are (2, 1), (2, 2), and (1, 2). Side length: 1 unit. Right means +x. Up means +y. Those are the axes for this page. A button adds or subtracts 1 from a and from b. It does not redraw a new shape. It moves this one.</p>
+
+  <div class="formula">Translation <strong>(x, y) → (x + a, y + b)</strong>. Example: a = 3, b = 0 sends (1, 1) to <strong>(4, 1)</strong>. Same a and b for every corner.</div>
+
+  <div class="plane" id="p-plane">
+    <svg id="plane2" viewBox="0 0 320 280" role="img" aria-labelledby="plane2cap">
+      <title id="plane2cap">Grid from 0 to 6. A square slides. The red dot is the marked corner.</title>
+      <g data-grid></g>
+      <polygon data-shape fill="#e3eef5" stroke="#2a4d66" stroke-width="2"></polygon>
+      <circle data-mark r="4.5" fill="#8b2e2e"></circle>
+    </svg>
+    <p class="readout" id="read2" aria-live="polite"></p>
+    <div class="btn-row">
+      <button type="button" class="btn" id="left">Left 1</button>
+      <button type="button" class="btn" id="right">Right 1</button>
+      <button type="button" class="btn" id="down">Down 1</button>
+      <button type="button" class="btn" id="up">Up 1</button>
+      <button type="button" class="btn" id="reset">Reset</button>
+    </div>
+  </div>
+  <p class="attribution">Teaching grid, drawn for this sample. Not a measurement from a class.</p>
+
+  <h3>What does not change</h3>
+  <p>Side lengths stay. Angles inside the square stay. The gap between two corners stays the same vector. That is the whole test. If the marked corner goes from (1, 1) to (4, 1), a is 3 and b is 0. The opposite corner goes from (2, 2) to (5, 2). Still a shift of (3, 0). People say “it moved to the right, so it got bigger” because 4 is a bigger number than 1. The address changed. The size did not. Size is the distance between corners, not the size of the address.</p>
+  <p>You can write that shift as a little table later. You do not need the table to see the slide. The buttons are the lesson. If a button is disabled, the square would leave the grid. That is the page protecting the picture, not a law of nature.</p>
+
+  <div class="practice" id="p-which">
+    <p class="eyebrow">Practice</p>
+    <h2>Which sentence is the slide?</h2>
+    <p>The marked corner started at (1, 1) and is now at (4, 1). The side is still 1 unit long.</p>
+    <div id="s-box"></div>
+    <div class="feedback" id="s-fb" role="status"></div>
+  </div>
+
+  <div class="practice" id="p-num">
+    <p class="eyebrow">Practice</p>
+    <h2>A shift you can do by hand</h2>
+    <p>A corner at (2, 5) is translated by a = −1, b = 2. Where does it land? Type it as x, y.</p>
+    <div class="numrow">
+      <label class="field" for="land" style="margin:0">New point</label>
+      <input type="text" id="land" inputmode="text" placeholder="1, 7" />
+      <button type="button" class="btn primary" id="land-check">Check</button>
+    </div>
+    <div class="feedback" id="land-fb" role="status"></div>
+  </div>
+
+  <div class="homework">
+    <h2>Homework</h2>
+    <p>Write it. If someone is running a section, turn it in there. 180–280 words. Stay seated.</p>
+    <blockquote class="prompt">Slide one object already on a table (coaster, book, phone) in a straight push. Do not turn it on purpose. Name your zero and your unit. Write the marked corner before and after as two pairs of numbers. State a and b. Say one thing that did not change (a side, or the facing of the cover). Then one sentence: what a ruler would have to show before you dropped a or b. If you only used the square on this page, say so, and report the button shifts you actually pressed. Do not invent a lab table. Do not call a slide a rotation.</blockquote>
+    <label class="field" for="hw2">Draft here (not stored; copy it out)</label>
+    <textarea id="hw2" rows="8" placeholder="Before, after, a and b, what stayed, what would change your mind…"></textarea>
+    <p class="wc" id="hw2wc"></p>
+    <div class="actions">
+      <button type="button" class="btn" id="copyHw">Copy homework prompt</button>
+    </div>
+  </div>
+
+  <nav class="pager" aria-label="Unit">
+    <a href="unit-1.html">← Prev: Point and axis</a>
+    <a href="unit-3.html">Next: Rotation →</a>
+  </nav>
+
+  <footer>Virgil Renfroe · Greensboro, NC · <a href="mailto:virgilrenfroe@gmail.com">virgilrenfroe@gmail.com</a> · 336-306-4185</footer>
+</article>
+<script>
+function copyHw(btnId) {
+  const btn = document.getElementById(btnId);
+  if (!btn) return;
+  btn.addEventListener("click", async () => {
+    const t = document.querySelector("blockquote.prompt").textContent;
+    try { await navigator.clipboard.writeText(t); btn.textContent = "Copied"; }
+    catch (_) { btn.textContent = "Select the prompt to copy"; }
+  });
+}
+function wordCount(taId, outId) {
+  const ta = document.getElementById(taId);
+  const out = document.getElementById(outId);
+  if (!ta || !out) return;
+  const upd = () => {
+    const n = ta.value.trim() ? ta.value.trim().split(/\s+/).length : 0;
+    out.textContent = n + " word" + (n === 1 ? "" : "s");
+  };
+  ta.addEventListener("input", upd);
+  upd();
+}
+function choices(boxId, fbId, opts) {
+  const box = document.getElementById(boxId);
+  const fb = document.getElementById(fbId);
+  opts.forEach((o) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "choice";
+    b.textContent = o.t;
+    b.addEventListener("click", () => {
+      [...box.querySelectorAll(".choice")].forEach(c => c.disabled = true);
+      b.classList.add(o.ok ? "correct" : "wrong");
+      opts.forEach((oo, j) => { if (oo.ok) box.children[j].classList.add("correct"); });
+      fb.className = "feedback show " + (o.ok ? "ok" : "bad");
+      fb.textContent = o.fb;
+    });
+    box.appendChild(b);
+  });
+}
+function mountPlane(svg, bounds) {
+  const NS = "http://www.w3.org/2000/svg";
+  const W = 320, H = 280, pad = 36;
+  const { xMin, xMax, yMin, yMax } = bounds;
+  const X = (x) => pad + (x - xMin) / (xMax - xMin) * (W - 2 * pad);
+  const Y = (y) => H - pad - (y - yMin) / (yMax - yMin) * (H - 2 * pad);
+  const g = svg.querySelector("[data-grid]");
+  g.replaceChildren();
+  const el = (name, attrs) => {
+    const n = document.createElementNS(NS, name);
+    for (const k in attrs) n.setAttribute(k, attrs[k]);
+    return n;
+  };
+  for (let x = xMin; x <= xMax; x++) {
+    g.appendChild(el("line", { x1: X(x), y1: Y(yMin), x2: X(x), y2: Y(yMax), stroke: "#e4dfd6", "stroke-width": "1" }));
+  }
+  for (let y = yMin; y <= yMax; y++) {
+    g.appendChild(el("line", { x1: X(xMin), y1: Y(y), x2: X(xMax), y2: Y(y), stroke: "#e4dfd6", "stroke-width": "1" }));
+  }
+  g.appendChild(el("line", { x1: X(xMin), y1: Y(0), x2: X(xMax), y2: Y(0), stroke: "#1c1916", "stroke-width": "1.6" }));
+  g.appendChild(el("line", { x1: X(0), y1: Y(yMin), x2: X(0), y2: Y(yMax), stroke: "#1c1916", "stroke-width": "1.6" }));
+  for (let x = xMin; x <= xMax; x++) {
+    const t = el("text", { x: X(x), y: Math.min(H - 8, Y(0) + 14), "text-anchor": "middle", fill: "#5c564c", "font-size": "11", "font-family": "Segoe UI, sans-serif" });
+    t.textContent = String(x);
+    g.appendChild(t);
+  }
+  for (let y = yMin; y <= yMax; y++) {
+    if (y === 0) continue;
+    const t = el("text", { x: X(0) - 6, y: Y(y) + 4, "text-anchor": "end", fill: "#5c564c", "font-size": "11", "font-family": "Segoe UI, sans-serif" });
+    t.textContent = String(y);
+    g.appendChild(t);
+  }
+  const hx = el("text", { x: X(xMax) - 2, y: Y(0) - 8, "text-anchor": "end", fill: "#2a4d66", "font-size": "13", "font-family": "Segoe UI, sans-serif" });
+  hx.textContent = "x";
+  g.appendChild(hx);
+  const hy = el("text", { x: X(0) + 8, y: Y(yMax) + 14, fill: "#2a4d66", "font-size": "13", "font-family": "Segoe UI, sans-serif" });
+  hy.textContent = "y";
+  g.appendChild(hy);
+  return { X, Y };
+}
+(function () {
+  const svg = document.getElementById("plane2");
+  const map = mountPlane(svg, { xMin: 0, xMax: 6, yMin: 0, yMax: 6 });
+  const shape = svg.querySelector("[data-shape]");
+  const mark = svg.querySelector("[data-mark]");
+  const read = document.getElementById("read2");
+  const base = [[1, 1], [2, 1], [2, 2], [1, 2]];
+  let a = 0, b = 0;
+  function draw() {
+    const pts = base.map(([x, y]) => [x + a, y + b]);
+    shape.setAttribute("points", pts.map((p) => map.X(p[0]) + "," + map.Y(p[1])).join(" "));
+    mark.setAttribute("cx", map.X(pts[0][0]));
+    mark.setAttribute("cy", map.Y(pts[0][1]));
+    read.textContent = "Slide (a, b) = (" + a + ", " + b + "). Marked corner: (1, 1) → (" + (1 + a) + ", " + (1 + b) + "). Side length is still 1. The square did not turn.";
+    document.getElementById("left").disabled = a <= 0;
+    document.getElementById("right").disabled = a >= 4;
+    document.getElementById("down").disabled = b <= 0;
+    document.getElementById("up").disabled = b >= 4;
+  }
+  document.getElementById("left").addEventListener("click", () => { a -= 1; draw(); });
+  document.getElementById("right").addEventListener("click", () => { a += 1; draw(); });
+  document.getElementById("down").addEventListener("click", () => { b -= 1; draw(); });
+  document.getElementById("up").addEventListener("click", () => { b += 1; draw(); });
+  document.getElementById("reset").addEventListener("click", () => { a = 0; b = 0; draw(); });
+  draw();
+
+  choices("s-box", "s-fb", [
+    { t: "Every corner moved right 3 units. a = 3, b = 0. The side is still 1, so it did not grow, and it did not turn.", ok: true, fb: "Yes. (1, 1) → (4, 1) is a shift of (3, 0). The address changed. The size did not." },
+    { t: "It grew, because 4 is bigger than 1.", ok: false, fb: "4 is a bigger address, not a bigger side. The side is still 1 unit. Distance between corners is the size." },
+    { t: "It turned 90 degrees, because the corner’s numbers changed.", ok: false, fb: "A turn would move the corner off that horizontal line, or spin the square. Here y stayed 1. That is a slide." }
+  ]);
+  document.getElementById("land-check").addEventListener("click", () => {
+    const raw = document.getElementById("land").value.replace(/[()]/g, "");
+    const parts = raw.split(/[,\s]+/).filter(Boolean);
+    const fb = document.getElementById("land-fb");
+    const x = Number(parts[0]);
+    const y = Number(parts[1]);
+    if (parts.length < 2 || Number.isNaN(x) || Number.isNaN(y)) {
+      fb.className = "feedback show bad";
+      fb.textContent = "Type two numbers, like 1, 7.";
+      return;
+    }
+    if (x === 1 && y === 7) {
+      fb.className = "feedback show ok";
+      fb.textContent = "Yes. (2 + −1, 5 + 2) = (1, 7). Same shift for any other corner of that shape.";
+    } else {
+      fb.className = "feedback show bad";
+      fb.textContent = "Not yet. Add a to x and b to y: 2 + (−1) and 5 + 2.";
+    }
+  });
+  copyHw("copyHw");
+  wordCount("hw2", "hw2wc");
+})();
+</script>
+</body>
+</html>

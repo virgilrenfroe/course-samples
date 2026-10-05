@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Unit 1 · Point, axis, and what a transform is · Seen Geometry</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="sample"><strong>Draft / sample.</strong> Do not apply.</div>
+<div class="top"><nav class="course-nav" aria-label="Course">
+  <a href="index.html">Course home</a>
+  <a href="unit-1.html" aria-current="page">1 Point</a>
+  <a href="unit-2.html">2 Slide</a>
+  <a href="unit-3.html">3 Turn</a>
+  <a href="unit-4.html">4 Size</a>
+  <a href="unit-5.html">5 Field</a>
+  <a href="unit-6.html">6 Morph</a>
+  <a href="unit-7.html">7 Order</a>
+  <a href="unit-8.html">8 Look</a>
+</nav></div>
+<article class="wrap" id="main">
+
+  <p class="eyebrow">Unit 1 · A place, then a change · ~35 minutes</p>
+  <h1>Point, axis, and what a transform is</h1>
+  <p class="lede">Not “over there.” A pair of numbers on axes you named, and a change a classmate could watch.</p>
+  <div class="meta">
+    <span class="chip">3 objectives</span>
+    <span class="chip">Sort + rewrite</span>
+    <span class="chip">1 homework</span>
+  </div>
+
+  <h2>What you'll do</h2>
+  <p>In this sitting:</p>
+  <ol class="obj-list">
+    <li>Name a point as two numbers, and say which way each axis runs.</li>
+    <li>Say what a transform is here: a rule that takes points to new points, which you can see.</li>
+    <li>Rewrite a mood or a slogan so it names the change, a number with a unit, and what would change your mind.</li>
+  </ol>
+
+  <h2>Lesson</h2>
+  <h3>A point is a place you can name</h3>
+  <p>A point, in this course, is a place named by numbers. On a flat page, two numbers are enough. (3, 2) means 3 units along the first axis and 2 along the second, after you have said where zero is and which way is positive. “The coaster is kind of near the corner” is a mood. “The coaster’s near corner is 3 centimeters right and 2 centimeters up from the table’s near-left corner” is a place. If a ruler, used the same way twice, reads 6 centimeters right, the 3 is wrong.</p>
+  <p>This is a first-year look at coordinate geometry. No calculus. You will not prove that the axes must meet at a right angle. We will use two axes that do, because that is the page you can draw. A third axis would stand up off the page. We will say so when a box in Unit 5 needs it. We will not build the algebra of that third axis.</p>
+
+  <h3>An axis is a job, not decoration</h3>
+  <p>An axis is a number line you agreed on. Zero, a positive direction, and a unit. Drop any one of those and the number is looking for a job. “I moved it 4” might be 4 centimeters, 4 inches, or 4 tiles. Those are not the same slide. First-year papers do this on schedule: a bare number, then a feeling about “space.”</p>
+  <p>The units you will actually need:</p>
+  <ul>
+    <li>a length unit you can point at (centimeter, inch, or “one grid square on the page”)</li>
+    <li>a degree, for a quarter turn (90°) and a half turn (180°)</li>
+    <li>a scale factor with no unit: 2 means twice as far from the center you named; 1 means no change; 1/2 means half as far</li>
+    <li>a blend weight from 0 to 1, later, for a shape that mixes toward another shape</li>
+  </ul>
+  <p>Refuse a number with no job. You do not need a conversion table.</p>
+
+  <h3>A transform is a change you can see</h3>
+  <p>A transform is a rule that sends every point to a new point. You should be able to point at the before and the after. This course uses three rules before it stacks them:</p>
+  <ul>
+    <li><strong>Translation</strong> — a slide. Every point moves by the same amount, in the same direction.</li>
+    <li><strong>Rotation</strong> — a turn around a center you name. That center stays.</li>
+    <li><strong>Scale</strong> — a grow or a shrink by a factor, from a center you name.</li>
+  </ul>
+  <p>A matrix, here, is a table of numbers that can store one of those rules, or a stack of them. You will not multiply tables by hand as the assignment. You will watch the change and say which rule you saw. If a table and a picture disagree, believe the picture and check the table. “Matrices are the language of the universe” cannot be wrong, which is why it is useless here.</p>
+  <p>A claim that cannot be revised is a slogan. You need a sentence that names the change, a number with a unit (or a factor), and the look that would force a rewrite.</p>
+
+  <div class="source">
+    <p class="eyebrow">Teaching object · invented sentences</p>
+    <p>Four sentences a first-year might say about the same coaster on a table. They are written for this sample. They are not student records and not data from a class that ran.</p>
+    <ol>
+      <li>“That coaster feels off.”</li>
+      <li>“Geometry is the hidden structure of reality.”</li>
+      <li>“I moved it 4.”</li>
+      <li>“I slid the coaster 4 centimeters to the right along the table’s near edge. If a ruler on that same edge reads about 2 centimeters, I drop the 4.”</li>
+    </ol>
+    <p class="attribution" style="margin-bottom:0">Invented for this sample. Sentence 4 names the change (a slide), a unit (centimeters), and what would change your mind (the ruler).</p>
+  </div>
+
+  <h3>The picture is the check</h3>
+  <p>Later units put a shape on a grid and give you buttons. The button is the rule. The grid is the check. If you say “I turned it” and the marked corner only moved sideways, you slid it. The word does not win.</p>
+  <p>Hand pictures in this folder are teaching objects. Nobody filmed a class. If you slide a real coaster for homework, your centimeters are yours. Do not copy the page’s (3, 2) and call it a measurement.</p>
+
+  <div class="practice" id="p-sort">
+    <p class="eyebrow">Practice</p>
+    <h2>Which sentence is the transform claim?</h2>
+    <p>Same coaster. Pick the sentence that names a change, a unit, and what would change the speaker’s mind.</p>
+    <div id="q-box"></div>
+    <div class="feedback" id="q-fb" role="status"></div>
+  </div>
+
+  <div class="practice" id="p-rewrite">
+    <p class="eyebrow">Practice</p>
+    <h2>Rewrite a slogan</h2>
+    <p>Slogan: <em>“The poster got all twisty. Matrices are intense in this room.”</em></p>
+    <p>Rewrite it as one claim. Name the change (a slide, a turn, or a grow). Name a number with a unit, or a scale factor. Name one look that would force a revision. Avoid “feels,” “twisty,” “intense,” “language of the universe,” and any bare number.</p>
+    <label class="field" for="rewrite">Your rewrite</label>
+    <textarea id="rewrite" rows="4" placeholder="I turned the poster a quarter turn around its center. I'd drop that if…"></textarea>
+    <p class="wc" id="rwc"></p>
+    <div class="actions">
+      <button type="button" class="btn primary" id="rw-check">Check the costumes</button>
+      <button type="button" class="btn" id="rw-show">Show a strong rewrite</button>
+    </div>
+    <div class="feedback" id="rw-fb" role="status"></div>
+    <div class="feedback" id="rw-strong"></div>
+  </div>
+
+  <div class="homework">
+    <h2>Homework</h2>
+    <p>Write it. If someone is running a section, turn it in there. 200–300 words.</p>
+    <blockquote class="prompt">Pick one object already on a table you use (a coaster, a book, a phone). Name a zero you can point at (a table corner is enough) and which way is right and which way is up. Give the object’s place as two numbers with a unit. Then name one change you could make without standing up: a slide, a turn, or leaving it. Rewrite one slogan you have heard about “space” or “matrices” so a classmate could check it. End with what would change your mind. Do not use “geometry is the language of the universe” or a number with no unit. Do not invent a class measurement.</blockquote>
+    <label class="field" for="hw1">Draft here (not stored; copy it out)</label>
+    <textarea id="hw1" rows="8" placeholder="A place, a change, then the paragraph…"></textarea>
+    <p class="wc" id="hw1wc"></p>
+    <div class="actions">
+      <button type="button" class="btn" id="copyHw">Copy homework prompt</button>
+    </div>
+  </div>
+
+  <nav class="pager" aria-label="Unit">
+    <a href="index.html">← Course home</a>
+    <a href="unit-2.html">Next: Translation →</a>
+  </nav>
+
+  <footer>Virgil Renfroe · Greensboro, NC · <a href="mailto:virgilrenfroe@gmail.com">virgilrenfroe@gmail.com</a> · 336-306-4185</footer>
+</article>
+<script>
+function copyHw(btnId) {
+  const btn = document.getElementById(btnId);
+  if (!btn) return;
+  btn.addEventListener("click", async () => {
+    const t = document.querySelector("blockquote.prompt").textContent;
+    try { await navigator.clipboard.writeText(t); btn.textContent = "Copied"; }
+    catch (_) { btn.textContent = "Select the prompt to copy"; }
+  });
+}
+function wordCount(taId, outId) {
+  const ta = document.getElementById(taId);
+  const out = document.getElementById(outId);
+  if (!ta || !out) return;
+  const upd = () => {
+    const n = ta.value.trim() ? ta.value.trim().split(/\s+/).length : 0;
+    out.textContent = n + " word" + (n === 1 ? "" : "s");
+  };
+  ta.addEventListener("input", upd);
+  upd();
+}
+(function () {
+  const opts = [
+    { t: "That coaster feels off.", ok: false, fb: "Feeling. A feeling is data about you, not a place on the table. The coaster is still there if you are not bothered." },
+    { t: "Geometry is the hidden structure of reality.", ok: false, fb: "Slogan. It cannot be wrong, which is why it cannot be checked. No change, no unit, nothing that would change your mind." },
+    { t: "I moved it 4.", ok: false, fb: "A number looking for a job. Four centimeters and four tiles are not the same slide. No unit, and you didn't say what would change your mind." },
+    { t: "I slid the coaster 4 centimeters to the right along the table’s near edge. If a ruler on that same edge reads about 2 centimeters, I drop the 4.", ok: true, fb: "Yes. A slide, a unit (centimeters), a direction, and what would change your mind (the ruler). A measurement can refuse it." }
+  ];
+  const box = document.getElementById("q-box");
+  const fb = document.getElementById("q-fb");
+  opts.forEach((o) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "choice";
+    b.textContent = o.t;
+    b.addEventListener("click", () => {
+      [...box.querySelectorAll(".choice")].forEach(c => c.disabled = true);
+      b.classList.add(o.ok ? "correct" : "wrong");
+      opts.forEach((oo, j) => { if (oo.ok) box.children[j].classList.add("correct"); });
+      fb.className = "feedback show " + (o.ok ? "ok" : "bad");
+      fb.textContent = o.fb;
+    });
+    box.appendChild(b);
+  });
+
+  wordCount("rewrite", "rwc");
+  document.getElementById("rw-check").addEventListener("click", () => {
+    const t = document.getElementById("rewrite").value.trim();
+    const fb = document.getElementById("rw-fb");
+    if (!t) { fb.className = "feedback show bad"; fb.textContent = "Write a rewrite first."; return; }
+    const low = t.toLowerCase();
+    const hits = [];
+    if (/feel|feels|felt|intense|twisty|crazy/.test(low)) hits.push("feeling language (feels / intense / twisty)");
+    if (/universe|hidden structure|language of|fundamental/.test(low)) hits.push("slogan");
+    if (/\d/.test(t) && !/\b(cm|centimeter|centimeters|in|inch|inches|degree|degrees|°|quarter|half|grid|unit|units|factor)\b/i.test(t)) hits.push("a number with no unit or factor");
+    if (!/if|drop|change my mind|revise|wrong if|would/.test(low)) hits.push("you didn't say what would change your mind");
+    const words = t.split(/\s+/).length;
+    if (words < 12) hits.push("too short to name a change, a number, and what would change your mind");
+    if (!/slid|slide|turn|turned|rotat|grew|grow|shrink|scale|quarter/.test(low)) hits.push("name the change: slide, turn, or grow");
+    if (hits.length === 0) {
+      fb.className = "feedback show ok";
+      fb.textContent = "No slogan costumes in the wording. Now the test this page cannot grade: could a classmate check you with a ruler, a corner of the poster, or the grid on a later unit? If they can only say “No, matrices aren’t intense,” you still have a souvenir.";
+    } else {
+      fb.className = "feedback show bad";
+      fb.textContent = "Costumes still on the sentence: " + hits.join("; ") + ". Strip those. Change, number, what would change your mind.";
+    }
+  });
+  document.getElementById("rw-show").addEventListener("click", () => {
+    const el = document.getElementById("rw-strong");
+    el.className = "feedback show ok";
+    el.textContent = "A strong rewrite: “I turned the poster a quarter turn clockwise around the pushpin at its center. A corner that started at the top should end at the right. I'd drop ‘quarter turn’ if that corner landed closer to the top than to the right.” Change (a turn), center (the pushpin), unit (a quarter turn), what would change your mind (where the corner lands). The room did not become “more matrix.”";
+  });
+  copyHw("copyHw");
+  wordCount("hw1", "hw1wc");
+})();
+</script>
+</body>
+</html>
